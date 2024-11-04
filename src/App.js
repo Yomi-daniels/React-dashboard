@@ -25,8 +25,11 @@ import {
   Stacked,
 } from "./pages";
 
+import { useStateContext } from "./contexts/ContextProvider";
+
 const App = () => {
-  const activeMenu = true;
+  const { activeMenu } = useStateContext();
+
   return (
     <div>
       <BrowserRouter>
@@ -35,7 +38,7 @@ const App = () => {
             <TooltipComponent content="Settings" position="Top">
               <button
                 type="button"
-                className="text-3xl text-white p-3 hover:drop-shadow-xl hover:bg-light-gray"
+                className="text-3xl text-white p-3 hover:drop-shadow-xl hover:bg-blue-500 bg-blue-700 rounded-full"
               >
                 <FiSettings />
               </button>
@@ -53,7 +56,7 @@ const App = () => {
           <div
             className={
               activeMenu
-                ? "dark:bg-main-dark-bg  bg-main-bg min-h-screen md:ml-72 w-full  "
+                ? "dark:bg-main-bg  bg-main-bg min-h-screen md:ml-72 w-full  "
                 : "bg-main-bg dark:bg-main-dark-bg  w-full min-h-screen flex-2 "
             }
           >
