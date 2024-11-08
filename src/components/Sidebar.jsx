@@ -23,11 +23,11 @@ const Sidebar = () => {
     <div className="ml-3 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10">
       {activeMenu && (
         <>
-          <div className="flex justify-between items-center fixed w-[285px] h-[62px] mb-[3rem] top-0 left-0 ml-0 bg-white z-20 shadow-sm">
+          <div className="flex justify-between items-center fixed w-[285px] h-[62px] mb-[3rem] top-0 left-0 ml-0 bg-white z-20 shadow-sm dark:bg-secondary-dark-bg">
             <Link
               to="/"
               onClick={handleCloseSideBar}
-              className="items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900"
+              className="items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900 "
             >
               <SiShopware />
               <span> Shoppy</span>
