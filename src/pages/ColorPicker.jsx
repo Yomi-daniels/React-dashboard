@@ -7,10 +7,11 @@ const change = (args) => {
 };
 const ColorPicker = () => {
   return (
-    <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
-      <Header category="App" title="Color Picker" />
+    <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl dark:bg-secondary-dark-bg dark:text-gray-200 ">
+      <Header category="App" title="Color Picker"
+      />
       <div className="text-center">
-        <div id="preview"  />
+        <div id="preview" />
         <div className="flex justify-center items-center gap-20 flex-wrap ">
         <div  className=" p-4">
           <p className="text-2xl font-semibold mt-2 mb-4 ">Inline Pallete</p>
