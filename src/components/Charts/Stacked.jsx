@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   ChartComponent,
   SeriesCollectionDirective,
@@ -14,7 +14,9 @@ import {
   stackedPrimaryXAxis,
   stackedPrimaryYAxis,
 } from "../../data/dummy";
+import { useStateContext } from "../../contexts/ContextProvider";
 const Stacked = ({ width, height }) => {
+  // const { currentColor } = useState(useStateContext);
   return (
     <ChartComponent
       width={width}
