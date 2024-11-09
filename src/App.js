@@ -96,7 +96,7 @@ const App = () => {
                 <Route path="/Bar" element={<Bar />} />
                 <Route path="/Pie" element={<Pie />} />
                 <Route path="/financial" element={<Financial />} />
-                <Route path="/color-maping" element={<ColorMapping />} />
+                <Route path="/color-mapping" element={<ColorMapping />} />
                 <Route path="/pyramid" element={<Pyramid />} />
                 <Route path="/stacked" element={<Stacked />} />
               </Routes>
