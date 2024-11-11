@@ -51,7 +51,7 @@ const Ecommerce = () => {
   return (
     <div className="mt-24 md:px-10">
       <div className="flex flex-wrap lg:flex-nowrap justify-center w-full gap-0">
-        <div className="relative dark:text-gray-200 dark:bg-secondary-dark-bg lg:h-[400px] rounded-xl w-full max-lg:w-[200px] p-8 m-3 bg-no-repeat bg-cover bg-center overflow-hidden bg-white hover:drop-shadow-xl">
+        <div className="relative dark:text-gray-200 dark:bg-secondary-dark-bg lg:h-[400px] rounded-xl w-full max-lg:w-[200px] max-sm:w-full  p-8 m-3 bg-no-repeat bg-cover bg-center overflow-hidden bg-white hover:drop-shadow-xl">
           <div className="flex justify-between items-center ">
             <div>
               <p className="font-bold text-gray-400">Earnings</p>
@@ -79,11 +79,11 @@ const Ecommerce = () => {
             className="confetti w-full h-full ml-2 object-contain absolute top-[10%] right-[-30%] overflow-hidden"
           />
         </div>
-        <div className="flex m-3 flex-wrap justify-center gap-3 items-center">
+        <div className="flex m-3 flex-wrap justify-center gap-3 items-center  max-sm:gap-10">
           {earningData.map((item) => (
             <div
               key={item.title}
-              className="bg-white h-44 dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56  p-4 pt-9 rounded-2xl shadow-sm hover:shadow-md"
+              className="bg-white h-44 dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56  p-4 max-sm:p-7 pt-9 rounded-2xl shadow-sm hover:shadow-md"
             >
               <button
                 type="button"
