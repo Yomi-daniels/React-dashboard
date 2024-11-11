@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { GoDotFill, GoPrimitiveDot } from "react-icons/go";
 import { IoIosMore } from "react-icons/io";
 import { DropDownListComponent } from "@syncfusion/ej2-react-dropdowns";
 import { FaDownload } from "react-icons/fa";
 import { Stacked, Pie, Button, LineChart, SparkLine } from "../components";
+import { gsap } from "gsap";
 import {
   earningData,
   medicalproBranding,
@@ -33,11 +34,24 @@ const DropDown = ({ currentMode }) => (
 
 const Ecommerce = () => {
   const { currentColor, currentMode } = useStateContext();
+  useEffect(() => {
+    // Create a timeline to control the animation
+    const confettiTimeline = gsap.timeline();
 
+    // Define the animation: Start, play for 2 seconds, then pause
+    confettiTimeline
+      .fromTo(
+        ".confetti",
+        { opacity: 0, scale: 0 },
+        { opacity: 1, scale: 1, duration: 1, ease: "power4.out" }
+      )
+      // Use `.call()` to pause the timeline after 2 seconds
+      .call(() => confettiTimeline.pause(), null, "+=1");
+  }, []);
   return (
-    <div className="mt-24 ">
-      <div className="flex flex-wrap lg:flex-nowrap justify-center ">
-        <div className="relative dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3  bg-no-repeat bg-cover bg-center overflow-hidden bg-white hover:drop-shadow-xl">
+    <div className="mt-24 md:px-10">
+      <div className="flex flex-wrap lg:flex-nowrap justify-center w-full gap-0">
+        <div className="relative dark:text-gray-200 dark:bg-secondary-dark-bg lg:h-[400px] rounded-xl w-full max-lg:w-[200px] p-8 m-3 bg-no-repeat bg-cover bg-center overflow-hidden bg-white hover:drop-shadow-xl">
           <div className="flex justify-between items-center ">
             <div>
               <p className="font-bold text-gray-400">Earnings</p>
@@ -60,12 +74,12 @@ const Ecommerce = () => {
             />
           </div>
           <img
-            src="/earnings.png"
-            alt="Download icon"
-            className="w-full h-full ml-2 object-contain absolute top-[30%] right-[-40%] overflow-hidden"
+            src="/confetti.gif"
+            alt="confetti"
+            className="confetti w-full h-full ml-2 object-contain absolute top-[10%] right-[-30%] overflow-hidden"
           />
         </div>
-        <div className="flex m-3 flex-wrap justify-start  gap-1   items-center">
+        <div className="flex m-3 flex-wrap justify-center gap-3 items-center">
           {earningData.map((item) => (
             <div
               key={item.title}
@@ -90,8 +104,8 @@ const Ecommerce = () => {
         </div>
       </div>
 
-      <div className="flex gap-10 flex-wrap justify-center">
-        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-780  ">
+      <div className="flex gap-1 flex-wrap justify-center">
+        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-750 ">
           <div className="flex justify-between">
             <p className="font-semibold text-xl">Revenue Updates</p>
             <div className="flex items-center gap-4">
@@ -109,8 +123,8 @@ const Ecommerce = () => {
               </p>
             </div>
           </div>
-          <div className="mt-10 flex gap-10 flex-wrap justify-center">
-            <div className=" border-r-1 border-color m-4 pr-10">
+          <div className="mt-10 flex gap-3 flex-wrap justify-center">
+            <div className=" border-r-1 border-color m-4 pr-10 ">
               <div>
                 <p>
                   <span className="text-3xl font-semibold">$93,438</span>
@@ -198,7 +212,7 @@ const Ecommerce = () => {
         </div>
       </div>
 
-      <div className="flex gap-10 m-4 flex-wrap justify-center">
+      <div className="flex gap-3 m-4 flex-wrap justify-center max-md:justify-between w-full relative">
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl">
           <div className="flex justify-between items-center gap-2">
             <p className="text-xl font-semibold">Recent Transactions</p>
@@ -240,7 +254,7 @@ const Ecommerce = () => {
             <p className="text-gray-400 text-sm">36 Recent Transactions</p>
           </div>
         </div>
-        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl w-96 md:w-760">
+        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl w-96 md:w-[670px]">
           <div className="flex justify-between items-center gap-2 mb-10">
             <p className="text-xl font-semibold">Sales Overview</p>
             <DropDown currentMode={currentMode} />
@@ -251,8 +265,8 @@ const Ecommerce = () => {
         </div>
       </div>
 
-      <div className="flex flex-wrap justify-center">
-        <div className="md:w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
+      <div className="flex flex-wrap justify-between  w-full">
+        <div className="md:w-[350px] bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
           <div className="flex justify-between">
             <p className="text-xl font-semibold">Weekly Stats</p>
             <button
@@ -286,20 +300,20 @@ const Ecommerce = () => {
                 <p className={`text-${item.pcColor}`}>{item.amount}</p>
               </div>
             ))}
-            <div className="mt-4">
+            <div className="mt-4 ">
               <SparkLine
                 currentColor={currentColor}
                 id="area-sparkLine"
                 height="160px"
                 type="Area"
                 data={SparklineAreaData}
-                width="320"
+                width="300"
                 color="rgb(242, 252, 253)"
               />
             </div>
           </div>
         </div>
-        <div className="w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
+        <div className="w-[350px] bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
           <div className="flex justify-between">
             <p className="text-xl font-semibold">MedicalPro Branding</p>
             <button
@@ -365,7 +379,7 @@ const Ecommerce = () => {
             <p className="text-gray-400 text-sm">36 Recent Transactions</p>
           </div>
         </div>
-        <div className="w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
+        <div className="w-[350px] bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
           <div className="flex justify-between">
             <p className="text-xl font-semibold">Daily Activities</p>
             <button
