@@ -60,7 +60,7 @@ const Ecommerce = () => {
             <button
               type="button"
               style={{ backgroundColor: currentColor }}
-              className="text-2xl opacity-0.9 text-white hover:drop-shadow-xl rounded-full p-4"
+              className="text-2xl opacity-0.9 text-white hover:drop-shadow-xl rounded-full p-4 z-10"
             >
               <BsCurrencyDollar />
             </button>
@@ -265,7 +265,7 @@ const Ecommerce = () => {
         </div>
       </div>
 
-      <div className="flex flex-wrap justify-between  w-full">
+      <div className="flex flex-wrap justify-between  w-full max-sm:justify-center">
         <div className="md:w-[350px] bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
           <div className="flex justify-between">
             <p className="text-xl font-semibold">Weekly Stats</p>
